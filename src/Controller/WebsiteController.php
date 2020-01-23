@@ -24,9 +24,9 @@ class WebsiteController extends AbstractController
     {
     	$entityManager = $this->getDoctrine()->getManager();
     	$user = new Users();
-    	$user->setNom("Cadarsi");
-    	$user->setPrenom("Romain");
-    	$user->setAge(19);
+    	$user->setNom($_POST['nom']);
+    	$user->setPrenom($_POST['prenom']);
+    	$user->setAge($_POST['age']);
     	$entityManager->persist($user);
     	$entityManager->flush();
         return $this->render('website/message.html.twig', [

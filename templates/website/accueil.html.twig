@@ -7,8 +7,19 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Bienvenu sur mon site web ! </h1>
-    <p> Il est encore en construction mais je prévois de faire des choses incroyables à l'avenir ! Reste à l'affut ! 😉 </p>
-    <a href= "index.php/wrsomething">Essayer de créer un objet </a>
+	<h1>Bienvenu sur mon site web ! </h1>
+	<p> Il est encore en construction mais je prévois de faire des choses incroyables à l'avenir ! Reste à l'affut ! 😉 </p>
+	<h3> Liste des gens qui sont déjà venu sur mon site (bande d'impatients) </h3>
+	{% for user in users %}
+	<li> {{user.nom}} {{user.prenom}}, {{user.age}} ans </li>
+	{% endfor%}
+	<p> Mais vous êtes là vous aussi, Inscrivez vous donc ! </p>
+
+	<form method = "post" action="index.php/wrsomething">
+		Votre nom : <input type="text" name="nom"><br>
+		Votre prénom : <input type="text" name="prenom"><br>
+		Votre age : <input type="text" name="age"><br>
+		<input type="submit">
+	</form>
 </div>
 {% endblock %}
