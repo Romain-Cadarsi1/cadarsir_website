@@ -13,7 +13,10 @@ class WebsiteController extends AbstractController
      */
     public function index()
     {
+    	$entityManager = $this->getDoctrine()->getManager();
+    	$users = $this->getDoctrine()->getRepository(Users::class)->findAll();
         return $this->render('website/accueil.html.twig', [
+        	'users' => $users
         ]);
     }
 
