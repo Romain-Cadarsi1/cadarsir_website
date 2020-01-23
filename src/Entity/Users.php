@@ -11,6 +11,12 @@ class Users
 {
     /**
      * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $nom;
@@ -24,6 +30,11 @@ class Users
      * @ORM\Column(type="integer")
      */
     private $age;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getNom(): ?string
     {
