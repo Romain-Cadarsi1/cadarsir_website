@@ -1,12 +1,149 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Welcome!{% endblock %}</title>
+	{% block stylesheets %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<header>
+	<div id="banniere">
+		<div id="logo"> 
+			<a href="https://cadarsir.fr" id='nom'> Cadarsi</a><a href="cadarsir.fr" id='prenom'>r</a>
+		</div>
+		<div >
+			<div id="menu-navigation">
+				<ul id="menu">
+					<button class="menu-item" onclick="getCard1()"><span>Mes compétences </span></button>
+					<button class="menu-item" onclick="getCard2()"><span> Mes Projets</span></button>
+					<button class="menu-item" onclick="getCard3()"><span>Me contacter</span></button>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<body>
+	<div id="fond">
+		<div id="gauche">
+		</div>
+		<div id="droite">
+		</div>
+		{% block body %}{% endblock %}
+		{% block javascripts %}{% endblock %}
+	</div>
+	<script type="text/javascript">
+		document.getElementById("logo").addEventListener('mouseenter',function(){
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "R";}, 30);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Ro";}, 60);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Rom";}, 90);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Roma";}, 120);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romai";}, 150);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romain";}, 180);
+		});
+		document.getElementById("logo").addEventListener('mouseleave',function(){
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romain";}, 30);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romai";}, 60);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Roma";}, 90);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Rom";},120);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Ro";}, 150);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "R";}, 180);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "r";}, 210);
+		});
+		function centerBar(){
+			var menuItems = document.querySelectorAll(".menu-item");
+			var sum = 0;
+			for (i = 0; i < menuItems.length; i++) {
+				sum += menuItems[i].offsetWidth;
+			} 
+			var padding = (window.outerWidth - sum)/2;
+			var txt = "";
+			txt =  padding +"px";
+			document.getElementById("menu-navigation").style.paddingLeft = txt;
+		}
+		function nextCard(){
+			var cards = document.getElementsByClassName("carte");
+			var txt = "";
+			
+			for(i = 0;i< cards.length; i++){
+				txt = parseFloat(cards[i].style.left) -100 + "%";
+				cards[i].style.left = txt;
+			}
+			onArrowClick();
+		}
+		function previousCard(){
+			var cards = document.getElementsByClassName("carte");
+			var txt = "";
+			
+			for(i = 0;i< cards.length; i++){
+				txt = parseFloat(cards[i].style.left) +100 + "%";
+				cards[i].style.left = txt;
+			}
+			onArrowClick();
+		}
+		function checkIfHideLeft(){
+			var cards = document.getElementsByClassName("carte");
+			if(cards[0].style.left == "4%"){
+				document.getElementsByClassName("previous")[0].classList.add("hidden");
+			}
+			else{
+				document.getElementsByClassName("previous")[0].classList.remove("hidden");
+			}
+		}
+		function checkIfHideRight(){
+			var cards = document.getElementsByClassName("carte");
+			if(cards[cards.length - 1].style.left == "4%"){
+				document.getElementsByClassName("next")[0].classList.add("hidden");
+			}
+			else{
+				document.getElementsByClassName("next")[0].classList.remove("hidden");
+			}
+		}
+		function synchroniseMenu(){
+			var cards = document.getElementsByClassName("carte");
+			for(i = 0;i< cards.length; i++){
+				if(cards[i].style.left == "4%"){
+				document.getElementById("menu").children[i].classList.add("menuSelected");
+			}
+			else{
+				document.getElementById("menu").children[i].classList.remove("menuSelected");
+			}
+		}
+	}
+		function getCard1(){
+			var cards = document.getElementsByClassName("carte");
+			while(cards[0].style.left != "4%"){
+				previousCard();
+			}
+		}
+
+		function getCard2(){
+			var cards = document.getElementsByClassName("carte");
+			while(cards[1].style.left != "4%"){
+				if(parseFloat(cards[1].style.left) < 0){
+					previousCard();
+				}
+				else{
+					nextCard();
+				}
+			}
+		}
+		function getCard3(){
+			var cards = document.getElementsByClassName("carte");
+			while(cards[2].style.left != "4%"){
+				nextCard();
+			}
+		}
+
+		function onArrowClick(){
+			checkIfHideRight();
+			checkIfHideLeft();
+			synchroniseMenu();
+		}
+
+		onArrowClick();
+		centerBar();
+		window.addEventListener('resize', centerBar);
+	</script>
+</body>
 </html>
