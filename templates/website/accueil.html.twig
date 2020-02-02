@@ -4,25 +4,60 @@
 
 {% block body %}
 
+<div id="cartePresentation">
+	<p id="presentation"> Bonjour, je m'appelle <span class="color">Romain Cadarsi </span> et je suis un jeune développeur Web passionné.<br> Si vous recherchez à mettre vos activités en avant sur Internet, je serais ravis de vous aider ! </p>
+	<div class="row">
+		<div>
+			<img  class="descImg" src="screen.png">
+			<h3> Pourquoi faire un site web? </h3>
+			<p> De nos jours, tout le monde a un smartphone ou un ordinateur. Le moyen le plus simple de récupérer des informations sur une entreprise ou une personne est donc Internet. Avec un site web, vous pourrez être beaucoup plus facilement repérable par les internautes et ils pourront partager votre site plus aisément qu'avec un numéro de portable ou une carte de visite.</p>
+		</div>
+		<div>
+			<img  class="descImg" src="dashboard.png">
+			<h3> J'ai besoin de bien plus qu'un site vitrine. </h3>
+			<p> Si vous souhaitez faire de votre site un véritable outil de travail, et pas qu'une simple page Web avec le nom de votre entreprise, tout est possible ! Que vous souhaitiez que votre communauté puisse se connecter et avoir du contenu spécialement choisis, ou bien pouvoir gérer les commandes de vos depuis votre smartphone, le meilleur moyen reste d'adapter votre site web à vos attentes. Adaptez vos outils de travail <span class="color"> au lieu de </span>vous adapter à eux !</p>
+		</div>
+		<div>
+			<img  class="descImg" src="design.png">
+			<h3> Je ne suis pas vraiment doué en informatique. </h3>
+			<p> Ce n'est pas un problème très conséquent. La plupart des gens ne s'y connaissent pas le moins du monde en informatique, et pourtant, naviguer sur Internet est devenu une routine que nous maîtrisons à la perfection. Vous pouvez avoir votre propre site sans avoir à lire la moindre ligne de code ! Faîtes ce que vous savez faire, et je me charge de vous fournir un outil aussi simple que possible à utiliser.
+			</p>
+		</div>
+	</div>
+	<p> J'ai répondu à toutes vos questions ? Si ce n'est pas le cas, vous pouvez toujours <a href=#>me poser votre question ici </a>.Autrement je vous invite à en savoir un peu plus sur mon style de travail et mes projets réalisés. Si tout çela vous plait alors n'hésitez pas à me contacter ! </p>
 
+</div>
+<div id="menu-navigation">
+				<div id="menu">
+					<button class="menu-item" onclick="getCard1()"><span>Mes compétences </span></button>
+					<button class="menu-item" onclick="getCard2()"><span> Mes Projets</span></button>
+					<button class="menu-item" onclick="getCard3()"><span>Me contacter</span></button>
+				</div>
+			</div>
 <div id="carteContainer">
+
 	<div class="carte" style="left:4%;">
 		<button  class="next" onclick="nextCard()"><span></span></button>
 		<button  class="previous" onclick="previousCard()"><span></span></button>
-		<h1>Bienvenu sur mon site web ! 1</h1>
-		<p> Il est encore en construction mais je prévois de faire des choses incroyables à l'avenir ! Reste à l'affut ! 😉 </p>
-		<h3> Liste des gens qui sont déjà venu sur mon site (bande d'impatients) </h3>
-		{% for user in users %}
-		<li> {{user.nom}} {{user.prenom}}, {{user.age}} ans </li>
-		{% endfor%}
-		<p> Mais vous êtes là vous aussi, Inscrivez vous donc ! </p>
+		<h1>Mes compétences</h1>
+		<p>Ayant travaillé sur de nombreux projets, j'ai pu acquiérir de nombreux langages que j'utilise fréquemment pour embellir mes projets (Front-End) et répondre à des besoins algorithmiques (Back-end)</p>
+		<div id="menu2">
+		<button class = "menu-item menu-item2" onclick=" getSecondCardOne() "> Front-end </button>
+		<button class = "menu-item menu-item2" onclick=" getSecondCardTwo() "> Back-end </button>
+	</div>
+		<div id="carteContainer2">
+		<div id="Front-end" class="secondCard">
+			<h2> Outils de Web-Design </h2>
+			<p> Quand on parle de Front-End, on parle souvent de Design et çela va de soit.</p>
+			<p> Faire un site Web, c'est tout d'abord lui donner l'aspect que l'on veut, mais c'est aussi le rendre agréable pour toutes les personnes qui peuvent le visiter. C'est pour cela que cet aspect est si important. </p>
+			<p>Votre site Web doit Vous ressembler mais également plaire aux Autres.</p>
 
-		<form method = "post" action="index.php/wrsomething">
-			Votre nom : <input type="text" name="nom"><br>
-			Votre prénom : <input type="text" name="prenom"><br>
-			Votre age : <input type="text" name="age"><br>
-			<input type="submit">
-		</form>
+		</div>
+		<div id="Back-end" class="secondCard">
+			<p> description back-end </p>
+		</div>
+	</div>
+
 	</div>
 	<div class="carte" style="left:104%;">
 		<h1>Bienvenu sur mon site web ! 2</h1>

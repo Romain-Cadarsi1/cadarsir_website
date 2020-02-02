@@ -12,17 +12,23 @@ html,body{
 a{
   text-decoration: none;
   color: #ed8204;
-  font-family: LogoFont;
+  font-family: Roboto;
 }
 #banniere{
   background-color: #2e2e2e;
   width: 100%;
 }
 #logo{
+  font-family:LogoFont;
   text-align: center;
   font-size: 500%;
   width: min-content;
   margin: 0 auto;
+  padding-bottom: 1%;
+}
+#logo>a{
+    font-family:LogoFont;
+  font-size: 130%;
 }
 #nom{
   color: whitesmoke;;
@@ -30,9 +36,12 @@ a{
 #menu{
   display: flex;
   padding: 0px;
-
   width: 100%;
   margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  z-index: 0;
+  /*! margin: 0 auto; */
 }
 #menu-navigation{
   width: auto;
@@ -45,7 +54,7 @@ a{
   color: whitesmoke;
   text-align: center;
   transition: all 0.5s;
-  border-radius: 4px;
+  border-radius: 4px 4px 0px 0px;
   background-color: #2e2e2e;
   border: none;
   color: #FFFFFF;
@@ -54,7 +63,7 @@ a{
   width: 20%;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 1%;
+  margin: 0 1%;
 }
 
 .menu-item span {
@@ -72,31 +81,67 @@ a{
   transition: 0.5s;
 }
 .menu-item:hover span {
-  padding-bottom: 8%;
+  padding-bottom: 0%;
 }
 .menu-item:hover span:after {
   opacity: 1;
-  top:40px;
+  top:35px;
 }
 #fond{
   background-color: #ed8204;
   position: absolute;
-  width: 100%
+  width: 100%;
+  overflow: hidden;
 }
 #carteContainer{
-  background-color: white;
+  background-color: #4e4e4e;
   margin: 2%;
   display: flex;
   border-radius: 20px;
   height: 200vh;
   padding: 2%;
+  color: white;
+}
+#carteContainer2{
+  background-color: #4e4e4e;
+  margin: 2%;
+  display: flex;
+  border-radius: 20px;
+  height: 100vh;
+  padding: 2%;
+  overflow: hidden;
+  margin-top: 10%;
+}
+.secondCard{
+  position: absolute;
+  width: 92%;
+  height: 100vh;
+  transition: all 0.5s  ease-in-out;
+  border-radius: 20px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  padding-top: 3%;
+}
+.secondCard>p{
+  padding: 1% 2% 0 2%;
+}
+.secondCard:nth-child(1){
+  left: 4%;
+}
+.secondCard:nth-child(2){
+  left: 104%;
 }
 .carte{
   position: absolute;
   width: 92%;
   height: 200vh;
-    transition: all 0.5s  ease-in-out;
-
+  transition: all 0.5s  ease-in-out;
+  border-radius: 20px;
+  text-align: center;
+}
+.cartechange{
+  box-shadow: 0px 0px 15px grey;
 }
 html {
     overflow-x: hidden;
@@ -154,7 +199,7 @@ html {
  display: none;
 }
 .menuSelected{
-  background-color: #666464;
+  background-color: #4e4e4e;
 }
 button{
     outline:none;
@@ -162,7 +207,56 @@ button{
 button::-moz-focus-inner {
    border: 0;
 }
-
+#Front-end{
+}
+#menu2{
+  position: absolute;
+  top: 5%;
+  width: 100%;
+}
+.menu-item2:hover{
+  background-color: white;
+  color: black;
+}
+.selected{
+  background-color: white;
+  color: black;
+}
+#cartePresentation{
+  text-align: center;
+  background-color: white;
+  margin: 2% 3%;
+  border-radius: 8px;
+  padding:2%;
+}
+span.color{
+  color: #ed8204;
+}
+.row{
+  margin: 2% 0 3% 0;
+  display: flex;
+}
+.row>div{
+box-shadow: 0 0 6px;
+margin: 0 2%;
+ padding: 1%;
+  border-radius: 8px;
+  text-align: justify;
+  background-color: #white;
+  color: black;
+}
+.row>div>h3{
+  text-align: center;
+}
+#presentation{
+  font-size: 130%;
+  margin-bottom: 5%;
+}
+.descImg{
+  width: 20%;
+  display: block;
+  margin: 0 auto;
+}
 
 
 
