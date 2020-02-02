@@ -28,12 +28,12 @@
 
 </div>
 <div id="menu-navigation">
-				<div id="menu">
-					<button class="menu-item" onclick="getCard1()"><span>Mes compétences </span></button>
-					<button class="menu-item" onclick="getCard2()"><span> Mes Projets</span></button>
-					<button class="menu-item" onclick="getCard3()"><span>Me contacter</span></button>
-				</div>
-			</div>
+	<div id="menu">
+		<button class="menu-item" onclick="getCard1()"><span>Mes compétences </span></button>
+		<button class="menu-item" onclick="getCard2()"><span> Mes Projets</span></button>
+		<button class="menu-item" onclick="getCard3()"><span>Me contacter</span></button>
+	</div>
+</div>
 <div id="carteContainer">
 
 	<div class="carte" style="left:4%;">
@@ -42,32 +42,64 @@
 		<h1>Mes compétences</h1>
 		<p>Ayant travaillé sur de nombreux projets, j'ai pu acquiérir de nombreux langages que j'utilise fréquemment pour embellir mes projets (Front-End) et répondre à des besoins algorithmiques (Back-end)</p>
 		<div id="menu2">
-		<button class = "menu-item menu-item2" onclick=" getSecondCardOne() "> Front-end </button>
-		<button class = "menu-item menu-item2" onclick=" getSecondCardTwo() "> Back-end </button>
-	</div>
+			<button class = "menu-item menu-item2" onclick=" getSecondCardOne() "> Front-end </button>
+			<button class = "menu-item menu-item2" onclick=" getSecondCardTwo() "> Back-end </button>
+		</div>
 		<div id="carteContainer2">
-		<div id="Front-end" class="secondCard">
-			<h2> Outils de Web-Design </h2>
-			<p> Quand on parle de Front-End, on parle souvent de Design et çela va de soit.</p>
-			<p> Faire un site Web, c'est tout d'abord lui donner l'aspect que l'on veut, mais c'est aussi le rendre agréable pour toutes les personnes qui peuvent le visiter. C'est pour cela que cet aspect est si important. </p>
-			<p>Votre site Web doit Vous ressembler mais également plaire aux Autres.</p>
-
+			<div id="Front-end" class="secondCard">
+				<h2> Outils de Web-Design </h2>
+				<p> Quand on parle de Front-End, on parle souvent de Design et çela va de soit.<br>Faire un site Web, c'est tout d'abord lui donner l'aspect que l'on veut, mais c'est aussi le rendre agréable pour toutes les personnes qui peuvent le visiter. C'est pour cela que cet aspect est si important. </p>
+				<p>Votre site Web doit <span class="color">vous ressembler</span> mais également <span class="color">plaire aux Autres.</span></p>
+				<div class= "row frontrow">
+					<div>
+						<img class="imgFront" src="html-css-logo-png-4.png">
+						<h3> Html/Css </h3>
+						<p> Ces langages sont la base même des pages Web, elles sont celles qui contiennent le contenu, et les règles de design les plus simples.</p>
+					</div>
+					<div>
+						<img class="imgFront" src="Javascript-shield.png">
+						<h3> JavaScript </h3>
+						<p> Le JavaScript permets de faire des pages dynamiques, parfait pour avoir un site web qui attire l'oeil et qui plait aux visiteurs ! </p>
+					</div>
+					<div>
+						<img class="imgFront" src="materialize-logo-0FCAD8A6F8-seeklogo.com.png">
+						<h3> Materialize </h3>
+						<p> Nous vivons dans un monde ou la mode prends une place très importante, pour Internet c'est la même chose et cette librairie Google contient des outils afin de donner un coup de jeune à nos sites Web </p>
+					</div>
+				</div>
+			</div>
+			<div id="Back-end" class="secondCard">
+			<h2> Outils de Programmation Back-End </h2>
+				<p> Le Back-end, c'est tout ce qui ne sera pas visible de votre site Web, il peut permettre notamment de stocker des données, traiter des informations à afficher, ou même envoyer des mails automatiques à tous vos abonnés !</p>
+				<p>Les fonctionnalitées en Back-end sont <span class="color">Infinies</span>.</p>
+				<div class= "row frontrow">
+					<div>
+						<img class="imgFront" src="MySQL.svg.png">
+						<h3> MySQL </h3>
+						<p> MySQL comme de nombreux autres langages gèrent les bases de données. Dans une base de donnée, tout ce qui est imaginable peut être stocké sans problème. Vos données sont bien gardées et vous seul y avez accès.</p>
+					</div>
+					<div>
+						<img class="imgFront" src="php_PNG3.png">
+						<h3> PHP </h3>
+						<p> Le PHP est un langage serveur qui s'occupe de déterminer quel information sera à afficher. Il peut génerer de l'HTML tout comme il peut créer des graphiques ou encore des tas d'autres utilisations. Comme vous le savez, Facebook est basé en grande partie sur du PHP. </p>
+					</div>
+					<div>
+						<img class="imgFront" src="symfony.png">
+						<h3> Symfony </h3>
+						<p> En réalité ce n'est pas vraiment un langage, mais un Framework se basant sur le PHP. Son but est de rendre la programmation en PHP beaucoup plus simple et cela ouvre des portes à toutes les idées. Tout est possible grâce à un Framework de ce genre. </p>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div id="Back-end" class="secondCard">
-			<p> description back-end </p>
-		</div>
-	</div>
 
 	</div>
 	<div class="carte" style="left:104%;">
-		<h1>Bienvenu sur mon site web ! 2</h1>
-		<p> Il est encore en construction mais je prévois de faire des choses incroyables à l'avenir ! Reste à l'affut ! 😉 </p>
-		<h3> Liste des gens qui sont déjà venu sur mon site (bande d'impatients) </h3>
+		<h1>Cette partie est encore en construction, j'y travaille dur! Elle sera disponible bientôt.</h1>
+		<h3> Si vous voyez ce message c'est que vous êtes très impatients et très chanceux ! Tout comme eux :  </h3>
 		{% for user in users %}
 		<li> {{user.nom}} {{user.prenom}}, {{user.age}} ans </li>
 		{% endfor%}
-		<p> Mais vous êtes là vous aussi, Inscrivez vous donc ! </p>
-
+		<p> Mais vous êtes là vous aussi, Inscrivez vous pour pouvoir dire que vous êtiez la pendant la construction de mon site!z </p>
 		<form method = "post" action="index.php/wrsomething">
 			Votre nom : <input type="text" name="nom"><br>
 			Votre prénom : <input type="text" name="prenom"><br>
@@ -76,20 +108,8 @@
 		</form>
 	</div>
 	<div class="carte" style="left:204%;">
-		<h1>Bienvenu sur mon site web ! 3</h1>
-		<p> Il est encore en construction mais je prévois de faire des choses incroyables à l'avenir ! Reste à l'affut ! 😉 </p>
-		<h3> Liste des gens qui sont déjà venu sur mon site (bande d'impatients) </h3>
-		{% for user in users %}
-		<li> {{user.nom}} {{user.prenom}}, {{user.age}} ans </li>
-		{% endfor%}
-		<p> Mais vous êtes là vous aussi, Inscrivez vous donc ! </p>
-
-		<form method = "post" action="index.php/wrsomething">
-			Votre nom : <input type="text" name="nom"><br>
-			Votre prénom : <input type="text" name="prenom"><br>
-			Votre age : <input type="text" name="age"><br>
-			<input type="submit">
-		</form>
+		<h1>Cette partie est encore en construction, j'y travaille dur! Elle sera disponible bientôt.</h1>
+		<p>Si vous voulez néanmoins me contacter , vous pouvez m'envoyer un mail à dev@cadarsir.fr et je me ferais un plaisir de vous répondre ! </p>
 	</div>
 </div>
 {% endblock %}
