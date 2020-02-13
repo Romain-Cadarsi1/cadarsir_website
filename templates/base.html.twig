@@ -1,192 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% block title %}Welcome!{% endblock %}</title>
-	{% block stylesheets %}{% endblock %}
-	<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <title>Cadarsir - Développeur Web</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/logo.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/ionicons.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<header>
-	<div id="banniere">
-		<div id="logo"> 
-			<a href="https://cadarsir.fr" id='nom'> Cadarsi</a><a href="cadarsir.fr" id='prenom'>r</a>
-		</div>
-	</div>
-</header>
 <body>
-	<div id="fond">
-		<div id="gauche">
-		</div>
-		<div id="droite">
-		</div>
-		{% block body %}{% endblock %}
-		{% block javascripts %}{% endblock %}
-	</div>
-	<script type="text/javascript">
-		document.getElementById("logo").addEventListener('mouseenter',function(){
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "R";}, 30);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Ro";}, 60);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Rom";}, 90);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Roma";}, 120);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romai";}, 150);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romain";}, 180);
-		});
-		document.getElementById("logo").addEventListener('mouseleave',function(){
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romain";}, 30);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romai";}, 60);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Roma";}, 90);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Rom";},120);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "Ro";}, 150);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "R";}, 180);
-			setTimeout(function(){document.getElementById("prenom").innerHTML = "r";}, 210);
-		});
-		function addChangeCard(){
-			for (var i = document.getElementsByClassName("carte").length - 1; i >= 0; i--) {
-				document.getElementsByClassName("carte")[i].classList.add("cartechange");
-			}
-		}
-		function removeChangeCard(){
-			for (var i = document.getElementsByClassName("carte").length - 1; i >= 0; i--) {
-				document.getElementsByClassName("carte")[i].classList.remove("cartechange");
-			}
-		}
-		function centerBar(){
-			var menuItems = document.querySelectorAll("#menu>.menu-item");
-			var sum = 0;
-			for (i = 0; i < menuItems.length; i++) {
-				sum += menuItems[i].offsetWidth;
-			}
-			var padding = (window.outerWidth - sum)/2;
-			var txt = "";
-			txt =  padding -40 +"px";
-			document.getElementById("menu-navigation").style.paddingLeft = txt;
-		}
-		function nextCard(){
-			var cards = document.getElementsByClassName("carte");
-			var txt = "";
-			for(i = 0;i< cards.length; i++){
-				txt = parseFloat(cards[i].style.left) -100 + "%";
-				cards[i].style.left = txt;
-			}
-			onArrowClick();
-		}
-		function previousCard(){
-			var cards = document.getElementsByClassName("carte");
-			var txt = "";
-			
-			for(i = 0;i< cards.length; i++){
-				txt = parseFloat(cards[i].style.left) +100 + "%";
-				cards[i].style.left = txt;
-			}
-			onArrowClick();
-		}
-		function checkIfHideLeft(){
-			var cards = document.getElementsByClassName("carte");
-			if(cards[0].style.left == "4%"){
-				document.getElementsByClassName("previous")[0].classList.add("hidden");
-			}
-			else{
-				document.getElementsByClassName("previous")[0].classList.remove("hidden");
-			}
-		}
-		function checkIfHideRight(){
-			var cards = document.getElementsByClassName("carte");
-			if(cards[cards.length - 1].style.left == "4%"){
-				document.getElementsByClassName("next")[0].classList.add("hidden");
-			}
-			else{
-				document.getElementsByClassName("next")[0].classList.remove("hidden");
-			}
-		}
-		function synchroniseMenu(){
-			var cards = document.getElementsByClassName("carte");
-			for(i = 0;i< cards.length; i++){
-				if(cards[i].style.left == "4%"){
-				document.getElementById("menu").children[i].classList.add("menuSelected");
-			}
-			else{
-				document.getElementById("menu").children[i].classList.remove("menuSelected");
-			}
-		}
-	}
-		function getCard1(){
-			var cards = document.getElementsByClassName("carte");
-			while(cards[0].style.left != "4%"){
-				previousCard();
-			}
-		}
 
-		function getCard2(){
-			var cards = document.getElementsByClassName("carte");
-			while(cards[1].style.left != "4%"){
-				if(parseFloat(cards[1].style.left) < 0){
-					previousCard();
-				}
-				else{
-					nextCard();
-				}
-			}
-		}
-		function getCard3(){
-			var cards = document.getElementsByClassName("carte");
-			while(cards[2].style.left != "4%"){
-				nextCard();
-			}
-		}
-		function getSecondCardOne(){
-			var cards = document.getElementsByClassName("secondCard");
-			var menuItems = document.getElementsByClassName("menu-item2");
-			cards[0].style.left = "4%";
-			menuItems[0].classList.add("selected");
-			cards[1].style.left = "504%";
-			menuItems[1].classList.remove("selected");
-		}
-		function getSecondCardTwo(){
-			var cards = document.getElementsByClassName("secondCard");
-			var menuItems = document.getElementsByClassName("menu-item2");
-			cards[0].style.left = "-504%";
-			menuItems[0].classList.remove("selected");
-			cards[1].style.left = "4%";
-			menuItems[1].classList.add("selected");
-		}
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="cadarsir.fr"><div id="prenom">Cadarsir</div></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="cadarsir.fr" class="nav-link">Accueil</a></li>
+          <li class="nav-item"><a href="/bepatient" class="nav-link">A propos de moi</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/bepatient" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+              <a class="dropdown-item" href="/bepatient">Web</a>
+              <a class="dropdown-item" href="/bepatient">Autres</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+  {% block body %}{% endblock %}
+  <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Mes réseaux sociaux</h2>
+            <p>Je fais du développement web et du design web en tant que Freelancer, mais de nombreuses autres choses m'intéressent aussi ! Suivez moi sur mes réseaux afin d'être au courant de mes autres hobbies 😉</p>
+            <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+              <li class="ftco-animate"><a href="https://www.facebook.com/romanito.cadarsi"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="https://www.instagram.com/romaincadarsi/"><span class="icon-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md">
+         <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Accès rapide</h2>
+          <ul class="list-unstyled">
+            <li><a href="#" class="py-2 d-block">Accueil</a></li>
+            <li><a href="/bepatient" class="py-2 d-block">A propos de moi</a></li>
+            <li><a href="/bepatient" class="py-2 d-block">Portfolio</a></li>
+            <li><a href="/bepatient" class="py-2 d-block">Web</a></li>
+            <li><a href="/bepatient" class="py-2 d-block">Autres</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md">
+       <div class="ftco-footer-widget mb-4">
+        <h2 class="ftco-heading-2">Contact</h2>
+        <ul class="list-unstyled">
+          <li><a href="#" class="py-2 d-block">Montpellier, France</a></li>
+          <li><a href="#" class="py-2 d-block">+33 6 03 59 05 55</a></li>
+          <li><a href="#" class="py-2 d-block">dev@cadarsir.fr</a></li>
+          <li><a href="#" class="py-2 d-block">cadarsir@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="ftco-footer-widget mb-4">
+        <h2 class="ftco-heading-2">Newsletter</h2>
+        <p>Souscrivez à la Newsletter et rejoignez la communautée !</p>
+        <form action="#" class="subscribe-form">
+          <div class="form-group">
+            <span class="icon icon-paper-plane"></span>
+            <input type="text" class="form-control" placeholder="Votre email">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p>
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 
-		function onArrowClick(){
-			checkIfHideRight();
-			checkIfHideLeft();
-			synchroniseMenu();
-		}
 
-		function verticalAlignMenuItem(){
-			var topContainer = document.getElementById('carteContainer').offsetTop;
-			var heightOfElem = document.getElementsByClassName('menu-item')[0].offsetHeight;
-			var txt = "";
-			txt = (topContainer - heightOfElem) + 1 + "px";
-			document.getElementById("menu").style.top = txt;
-		}
-		function verticalAlignMenuItem2(){
-			var topContainer = document.getElementById('Front-end').offsetTop;
-			var heightOfElem = document.getElementById('menu2').offsetHeight;
-			var txt = "";
-			txt = (topContainer - heightOfElem) + 1 + "px";
-			document.getElementById("menu2").style.top = txt;
-		}
-
-		onArrowClick();
-		getSecondCardOne();
-		window.addEventListener('load', centerBar);
-		centerBar();
-		verticalAlignMenuItem();
-		verticalAlignMenuItem2();
-		window.addEventListener('resize', centerBar);
-		window.addEventListener('resize', verticalAlignMenuItem);
-		window.addEventListener('resize', verticalAlignMenuItem2);
-		window.addEventListener('scroll', verticalAlignMenuItem);
-		window.addEventListener('scroll', verticalAlignMenuItem2);
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-	</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.timepicker.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="js/google-map.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+  document.getElementsByClassName("navbar-brand")[0].addEventListener('mouseenter',function(){
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiR";}, 30);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRo";}, 60);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRom";}, 90);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRoma";}, 120);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRomai";}, 150);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRomain";}, 180);
+  });
+  document.getElementsByClassName("navbar-brand")[0].addEventListener('mouseleave',function(){
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRomain";}, 30);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRomai";}, 60);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRoma";}, 90);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRom";},120);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiRo";}, 150);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "CadarsiR";}, 180);
+    setTimeout(function(){document.getElementById("prenom").innerHTML = "Cadarsir";}, 210);
+  });
+
+</script>
+
 </body>
 </html>

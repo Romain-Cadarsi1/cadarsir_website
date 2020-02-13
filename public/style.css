@@ -242,7 +242,7 @@ margin: 0 2%;
  padding: 1%;
   border-radius: 8px;
   text-align: justify;
-  background-color: #white;
+  background-color: white;
   color: black;
   transition: all 0.5s;
 }
@@ -265,6 +265,15 @@ margin: 0 2%;
 }
 .row>div:hover{
   box-shadow: 0 0 14px;
+}
+@media screen and (min-width: 200px) and (max-width:1000px){
+  .row{
+    display: block;
+  }
+    .row>div{
+   margin-bottom: 5%;
+  }
+  
 }
 
 

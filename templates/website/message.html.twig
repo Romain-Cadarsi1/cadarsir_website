@@ -1,13 +1,29 @@
-{% extends 'base.html.twig' %}
+	{% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+	{% block title %}Contact{% endblock %}
 
-{% block body %}
-<style>
-</style>
+	{% block body %}
+	<section class="home-slider ftco-degree-bg">
 
-<div class="example-wrapper">
-    <h1> Bienvenu sur mon site web ! </h1>
-    <p> Le message renvoyé est : {{message}} </p>
-</div>
-{% endblock %}
+		<div class="slider-item">
+			<div class="overlay"></div>
+			<div class="container">
+
+				<div class="row slider-text align-items-center justify-content-center">
+					<div class="col-md-10 ftco-animate text-center">
+						<h1 class="mb-4">{{slider1}}
+							<strong class="typewrite" data-period="4000" data-type= '[ "{{slider21}}", "{{slider22}}", "{{slider23}}"]'>
+								<span class="wrap"></span>
+							</strong>
+							<p>{{message}}</p>
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END slider -->
+
+	
+
+		{% endblock %}

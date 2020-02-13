@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}Welcome!{% endblock %}</title>
+	{% block stylesheets %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<header>
+	<div id="banniere">
+		<div id="logo"> 
+			<a href="https://cadarsir.fr" id='nom'> Cadarsi</a><a href="cadarsir.fr" id='prenom'>r</a>
+		</div>
+	</div>
+</header>
+<body>
+	<div id="fond">
+		<div id="gauche">
+		</div>
+		<div id="droite">
+		</div>
+		{% block body %}{% endblock %}
+		{% block javascripts %}{% endblock %}
+	</div>
+	<script type="text/javascript">
+		document.getElementById("logo").addEventListener('mouseenter',function(){
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "R";}, 30);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Ro";}, 60);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Rom";}, 90);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Roma";}, 120);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romai";}, 150);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romain";}, 180);
+		});
+		document.getElementById("logo").addEventListener('mouseleave',function(){
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romain";}, 30);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Romai";}, 60);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Roma";}, 90);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Rom";},120);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "Ro";}, 150);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "R";}, 180);
+			setTimeout(function(){document.getElementById("prenom").innerHTML = "r";}, 210);
+		});
+		function addChangeCard(){
+			for (var i = document.getElementsByClassName("carte").length - 1; i >= 0; i--) {
+				document.getElementsByClassName("carte")[i].classList.add("cartechange");
+			}
+		}
+		function removeChangeCard(){
+			for (var i = document.getElementsByClassName("carte").length - 1; i >= 0; i--) {
+				document.getElementsByClassName("carte")[i].classList.remove("cartechange");
+			}
+		}
+		function centerBar(){
+			var menuItems = document.querySelectorAll("#menu>.menu-item");
+			var sum = 0;
+			for (i = 0; i < menuItems.length; i++) {
+				sum += menuItems[i].offsetWidth;
+			}
+			var padding = (window.outerWidth - sum)/2;
+			var txt = "";
+			txt =  padding -40 +"px";
+			document.getElementById("menu-navigation").style.paddingLeft = txt;
+		}
+		function nextCard(){
+			var cards = document.getElementsByClassName("carte");
+			var txt = "";
+			for(i = 0;i< cards.length; i++){
+				txt = parseFloat(cards[i].style.left) -100 + "%";
+				cards[i].style.left = txt;
+			}
+			onArrowClick();
+		}
+		function previousCard(){
+			var cards = document.getElementsByClassName("carte");
+			var txt = "";
+			
+			for(i = 0;i< cards.length; i++){
+				txt = parseFloat(cards[i].style.left) +100 + "%";
+				cards[i].style.left = txt;
+			}
+			onArrowClick();
+		}
+		function checkIfHideLeft(){
+			var cards = document.getElementsByClassName("carte");
+			if(cards[0].style.left == "4%"){
+				document.getElementsByClassName("previous")[0].classList.add("hidden");
+			}
+			else{
+				document.getElementsByClassName("previous")[0].classList.remove("hidden");
+			}
+		}
+		function checkIfHideRight(){
+			var cards = document.getElementsByClassName("carte");
+			if(cards[cards.length - 1].style.left == "4%"){
+				document.getElementsByClassName("next")[0].classList.add("hidden");
+			}
+			else{
+				document.getElementsByClassName("next")[0].classList.remove("hidden");
+			}
+		}
+		function synchroniseMenu(){
+			var cards = document.getElementsByClassName("carte");
+			for(i = 0;i< cards.length; i++){
+				if(cards[i].style.left == "4%"){
+				document.getElementById("menu").children[i].classList.add("menuSelected");
+			}
+			else{
+				document.getElementById("menu").children[i].classList.remove("menuSelected");
+			}
+		}
+	}
+		function getCard1(){
+			var cards = document.getElementsByClassName("carte");
+			while(cards[0].style.left != "4%"){
+				previousCard();
+			}
+		}
+
+		function getCard2(){
+			var cards = document.getElementsByClassName("carte");
+			while(cards[1].style.left != "4%"){
+				if(parseFloat(cards[1].style.left) < 0){
+					previousCard();
+				}
+				else{
+					nextCard();
+				}
+			}
+		}
+		function getCard3(){
+			var cards = document.getElementsByClassName("carte");
+			while(cards[2].style.left != "4%"){
+				nextCard();
+			}
+		}
+		function getSecondCardOne(){
+			var cards = document.getElementsByClassName("secondCard");
+			var menuItems = document.getElementsByClassName("menu-item2");
+			cards[0].style.left = "4%";
+			menuItems[0].classList.add("selected");
+			cards[1].style.left = "504%";
+			menuItems[1].classList.remove("selected");
+		}
+		function getSecondCardTwo(){
+			var cards = document.getElementsByClassName("secondCard");
+			var menuItems = document.getElementsByClassName("menu-item2");
+			cards[0].style.left = "-504%";
+			menuItems[0].classList.remove("selected");
+			cards[1].style.left = "4%";
+			menuItems[1].classList.add("selected");
+		}
+
+
+		function onArrowClick(){
+			checkIfHideRight();
+			checkIfHideLeft();
+			synchroniseMenu();
+		}
+
+		function verticalAlignMenuItem(){
+			var topContainer = document.getElementById('carteContainer').offsetTop;
+			var heightOfElem = document.getElementsByClassName('menu-item')[0].offsetHeight;
+			var txt = "";
+			txt = (topContainer - heightOfElem) + 1 + "px";
+			document.getElementById("menu").style.top = txt;
+		}
+		function verticalAlignMenuItem2(){
+			var topContainer = document.getElementById('Front-end').offsetTop;
+			var heightOfElem = document.getElementById('menu2').offsetHeight;
+			var txt = "";
+			txt = (topContainer - heightOfElem) + 1 + "px";
+			document.getElementById("menu2").style.top = txt;
+		}
+
+		onArrowClick();
+		getSecondCardOne();
+		window.addEventListener('load', centerBar);
+		centerBar();
+		verticalAlignMenuItem();
+		verticalAlignMenuItem2();
+		window.addEventListener('resize', centerBar);
+		window.addEventListener('resize', verticalAlignMenuItem);
+		window.addEventListener('resize', verticalAlignMenuItem2);
+		window.addEventListener('scroll', verticalAlignMenuItem);
+		window.addEventListener('scroll', verticalAlignMenuItem2);
+
+
+	</script>
+</body>
+</html>

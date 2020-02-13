@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+<div id="cartePresentation">
+	<p id="presentation"> Bonjour, je m'appelle <span class="color">Romain Cadarsi </span> et je suis un jeune développeur Web passionné.<br> Si vous recherchez à mettre vos activités en avant sur Internet, je serais ravis de vous aider ! </p>
+	<div class="row">
+		<div>
+			<img  class="descImg" src="screen.png">
+			<h3> Pourquoi faire un site web? </h3>
+			<p> De nos jours, tout le monde a un smartphone ou un ordinateur. Le moyen le plus simple de récupérer des informations sur une entreprise ou une personne est donc Internet. Avec un site web, vous pourrez être beaucoup plus facilement repérable par les internautes et ils pourront partager votre site plus aisément qu'avec un numéro de portable ou une carte de visite.</p>
+		</div>
+		<div>
+			<img  class="descImg" src="dashboard.png">
+			<h3> J'ai besoin de bien plus qu'un site vitrine. </h3>
+			<p> Si vous souhaitez faire de votre site un véritable outil de travail, et pas qu'une simple page Web avec le nom de votre entreprise, tout est possible ! Que vous souhaitiez que votre communauté puisse se connecter et avoir du contenu spécialement choisis, ou bien pouvoir gérer les commandes de vos depuis votre smartphone, le meilleur moyen reste d'adapter votre site web à vos attentes. Adaptez vos outils de travail <span class="color"> au lieu de </span>vous adapter à eux !</p>
+		</div>
+		<div>
+			<img  class="descImg" src="design.png">
+			<h3> Je ne suis pas vraiment doué en informatique. </h3>
+			<p> Ce n'est pas un problème très conséquent. La plupart des gens ne s'y connaissent pas le moins du monde en informatique, et pourtant, naviguer sur Internet est devenu une routine que nous maîtrisons à la perfection. Vous pouvez avoir votre propre site sans avoir à lire la moindre ligne de code ! Faîtes ce que vous savez faire, et je me charge de vous fournir un outil aussi simple que possible à utiliser.
+			</p>
+		</div>
+	</div>
+	<p> J'ai répondu à toutes vos questions ? Si ce n'est pas le cas, vous pouvez toujours <a href=#>me poser votre question ici </a>.Autrement je vous invite à en savoir un peu plus sur mon style de travail et mes projets réalisés. Si tout çela vous plait alors n'hésitez pas à me contacter ! </p>
+
+</div>
+<div id="menu-navigation">
+	<div id="menu">
+		<button class="menu-item" onclick="getCard1()"><span>Mes compétences </span></button>
+		<button class="menu-item" onclick="getCard2()"><span> Mes Projets</span></button>
+		<button class="menu-item" onclick="getCard3()"><span>Me contacter</span></button>
+	</div>
+</div>
+<div id="carteContainer">
+
+	<div class="carte" style="left:4%;">
+		<button  class="next" onclick="nextCard()"><span></span></button>
+		<button  class="previous" onclick="previousCard()"><span></span></button>
+		<h1>Mes compétences</h1>
+		<p>Ayant travaillé sur de nombreux projets, j'ai pu acquiérir de nombreux langages que j'utilise fréquemment pour embellir mes projets (Front-End) et répondre à des besoins algorithmiques (Back-end)</p>
+		<div id="menu2">
+			<button class = "menu-item menu-item2" onclick=" getSecondCardOne() "> Front-end </button>
+			<button class = "menu-item menu-item2" onclick=" getSecondCardTwo() "> Back-end </button>
+		</div>
+		<div id="carteContainer2">
+			<div id="Front-end" class="secondCard">
+				<h2> Outils de Web-Design </h2>
+				<p> Quand on parle de Front-End, on parle souvent de Design et çela va de soit.<br>Faire un site Web, c'est tout d'abord lui donner l'aspect que l'on veut, mais c'est aussi le rendre agréable pour toutes les personnes qui peuvent le visiter. C'est pour cela que cet aspect est si important. </p>
+				<p>Votre site Web doit <span class="color">vous ressembler</span> mais également <span class="color">plaire aux Autres.</span></p>
+				<div class= "row frontrow">
+					<div>
+						<img class="imgFront" src="html-css-logo-png-4.png">
+						<h3> Html/Css </h3>
+						<p> Ces langages sont la base même des pages Web, elles sont celles qui contiennent le contenu, et les règles de design les plus simples.</p>
+					</div>
+					<div>
+						<img class="imgFront" src="Javascript-shield.png">
+						<h3> JavaScript </h3>
+						<p> Le JavaScript permets de faire des pages dynamiques, parfait pour avoir un site web qui attire l'oeil et qui plait aux visiteurs ! </p>
+					</div>
+					<div>
+						<img class="imgFront" src="materialize-logo-0FCAD8A6F8-seeklogo.com.png">
+						<h3> Materialize </h3>
+						<p> Nous vivons dans un monde ou la mode prends une place très importante, pour Internet c'est la même chose et cette librairie Google contient des outils afin de donner un coup de jeune à nos sites Web </p>
+					</div>
+				</div>
+			</div>
+			<div id="Back-end" class="secondCard">
+			<h2> Outils de Programmation Back-End </h2>
+				<p> Le Back-end, c'est tout ce qui ne sera pas visible de votre site Web, il peut permettre notamment de stocker des données, traiter des informations à afficher, ou même envoyer des mails automatiques à tous vos abonnés !</p>
+				<p>Les fonctionnalitées en Back-end sont <span class="color">Infinies</span>.</p>
+				<div class= "row frontrow">
+					<div>
+						<img class="imgFront" src="MySQL.svg.png">
+						<h3> MySQL </h3>
+						<p> MySQL comme de nombreux autres langages gèrent les bases de données. Dans une base de donnée, tout ce qui est imaginable peut être stocké sans problème. Vos données sont bien gardées et vous seul y avez accès.</p>
+					</div>
+					<div>
+						<img class="imgFront" src="php_PNG3.png">
+						<h3> PHP </h3>
+						<p> Le PHP est un langage serveur qui s'occupe de déterminer quel information sera à afficher. Il peut génerer de l'HTML tout comme il peut créer des graphiques ou encore des tas d'autres utilisations. Comme vous le savez, Facebook est basé en grande partie sur du PHP. </p>
+					</div>
+					<div>
+						<img class="imgFront" src="symfony.png">
+						<h3> Symfony </h3>
+						<p> En réalité ce n'est pas vraiment un langage, mais un Framework se basant sur le PHP. Son but est de rendre la programmation en PHP beaucoup plus simple et cela ouvre des portes à toutes les idées. Tout est possible grâce à un Framework de ce genre. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="carte" style="left:104%;">
+		<h1>Cette partie est encore en construction, j'y travaille dur! Elle sera disponible bientôt.</h1>
+		<h3> Si vous voyez ce message c'est que vous êtes très impatients et très chanceux ! Tout comme eux :  </h3>
+		{% for user in users %}
+		<li> {{user.nom}} {{user.prenom}}, {{user.age}} ans </li>
+		{% endfor%}
+		<p> Mais vous êtes là vous aussi, Inscrivez vous pour pouvoir dire que vous êtiez la pendant la construction de mon site!z </p>
+		<form method = "post" action="index.php/wrsomething">
+			Votre nom : <input type="text" name="nom"><br>
+			Votre prénom : <input type="text" name="prenom"><br>
+			Votre age : <input type="text" name="age"><br>
+			<input type="submit">
+		</form>
+	</div>
+	<div class="carte" style="left:204%;">
+		<h1>Cette partie est encore en construction, j'y travaille dur! Elle sera disponible bientôt.</h1>
+		<p>Si vous voulez néanmoins me contacter , vous pouvez m'envoyer un mail à dev@cadarsir.fr et je me ferais un plaisir de vous répondre ! </p>
+	</div>
+</div>
+{% endblock %}

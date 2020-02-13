@@ -1,0 +1,47 @@
+	{% extends 'base.html.twig' %}
+
+	{% block title %}Contact{% endblock %}
+
+	{% block body %}
+	<section class="home-slider ftco-degree-bg">
+
+		<div class="slider-item">
+			<div class="overlay"></div>
+			<div class="container">
+
+				<div class="row slider-text align-items-center justify-content-center">
+					<div class="col-md-10 ftco-animate text-center">
+						<h1 class="mb-4">Contactez moi pour
+							<strong class="typewrite" data-period="4000" data-type='[ "des infos.", "un projet.", "une question."]'>
+								<span class="wrap"></span>
+							</strong>
+							<p>Vous pouvez me contacter avec ce formulaire ou m'envoyer un mail directement à dev@cadarsir.fr</p>
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END slider -->
+
+	<section class="ftco-section-featured ftco-animate">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<form action="/send" class="subscribe-form" method="post">
+						<div class="form-groupContact">
+							<span class="icon icon-paper-plane"></span>
+							<input name ="nom" type="text" class="formContact form-control" placeholder="Nom">
+							<input name = "prenom" type="text" class="formContact form-control " placeholder="Prénom">
+							<input name = "email" type="text" class="formContact form-control" placeholder="Email">
+							<textarea name="message" class = "formContact form-control"rows = "12" cols = "35" placeholder="Votre message"></textarea>
+							<input type="submit" name="submit" value="Envoyer" />
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+		{% endblock %}
